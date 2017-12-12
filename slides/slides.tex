@@ -1,0 +1,49 @@
+\documentclass{beamer}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{listings}
+
+\usepackage{etoolbox}
+
+
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+
+% show outline before each section. uncomment if unwanted.
+\AtBeginSection[]{
+    \ifnumcomp{\value{section}}{=}{1}{}{
+        \frame{\frametitle{\insertsection}\tableofcontents[currentsection,hideothersubsections]}
+    }
+}
+
+\include{sections/meta}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Structure}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\include{sections/intro}
+\include{sections/work}
+\include{sections/conclusion}
+
+\section{Bibliography}
+
+\nocite{*}
+
+\begin{frame}[allowframebreaks]{\insertsubsection}
+    \begingroup
+    \small
+    \beamertemplatebookbibitems
+    \bibliographystyle{apalike}
+    \bibliography{bib}
+    \endgroup
+\end{frame}
+
+\end{document}
