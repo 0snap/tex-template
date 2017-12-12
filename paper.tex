@@ -1,0 +1,84 @@
+% !TeX spellcheck=de_DE
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage[fleqn]{amsmath}
+\usepackage{amsfonts, amssymb}
+\usepackage[a4paper, hmargin=2.5cm, vmargin=2.0cm]{geometry}
+\usepackage{enumerate}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage{todonotes}
+\usepackage{titlesec}
+\usepackage{scrpage2}
+
+\makeatletter
+\def\email#1{{\tt#1}}
+\def\subtitle#1{\gdef\@subtitle{#1}}
+\def\institute#1{\gdef\@institute{#1}}
+\def\authors#1#2{\author{#2}}
+\makeatother
+\input{sections/meta}
+
+\newcolumntype{x}[1]{>{\centering\arraybackslash}m{#1}}
+
+\linespread{1.1}
+
+\pagestyle{scrheadings}
+\clearscrheadings
+\ofoot{\pagemark}
+
+\pagenumbering{arabic}
+
+\begin{document}
+\urlstyle{same}
+	
+\makeatletter
+\def\@maketitle{%
+	\newpage
+	\null
+	\vskip 2em%
+	\begin{center}%
+		\let \footnote \thanks
+		{\LARGE\bfseries \@title \par}%
+		\vskip .5em%
+		{\Large \@subtitle \par}%
+		\vskip 1.5em%
+		{\large
+			\lineskip .5em%
+			\begin{tabular}[t]{c}%
+				\@author
+			\end{tabular}\par}%
+		\vskip 1em%
+		{\large
+			\lineskip .5em%
+			\begin{tabular}[t]{c}%
+				\@institute
+			\end{tabular}\par}%
+		\vskip 1em%
+		{\large \today}%
+	\end{center}%
+	\par
+	\vskip 1.5em}
+\makeatother
+
+\maketitle
+
+\begin{abstract}
+	Some abstract for this paper.
+\end{abstract}
+
+\input{sections/intro}
+\input{sections/related}
+\input{sections/work}
+\input{sections/impl}
+\input{sections/results}
+\input{sections/conclusion}
+
+\nocite{*}
+\bibliographystyle{abbrv}
+\bibliography{bib}
+\end{document}
